@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        vector<int> anagram;
+        if (s.length() != t.length())
+            return false;
+        else{
+            for (int i = 0; i < s.length(); i++){
+                if (t.find(s.at(i)) != std::string::npos){
+                    anagram.push_back(t.find(s.at(i)));
+                }
+            }
+            if(anagram.size() == s.length())
+                return true;
+            else
+                return false;
+        }
+    }
+};

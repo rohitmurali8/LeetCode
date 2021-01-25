@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        string occurence;
+        int first;
+        vector<int> occur;
+        if (haystack == "" && needle == "" || needle == "")
+            return 0;
+        else if(haystack == "")
+            return -1;
+        else{
+            cout << "Entering proper loop" << endl;
+            for (int i = 0; i < haystack.length(); i++){
+                for (int j = 0; j < needle.length(); j++){
+                    if (haystack.at(i) == needle.at(j)){
+                        occurence.push_back(haystack.at(i));
+                        occur.push_back(i);
+                        break;
+                    }
+                }
+                if(occurence.compare(needle) == 0)
+                    break;
+            }
+        }
+        cout << occurence << endl;
+        for(int i = 0; i < occur.size(); i++){
+            cout << occur.at(i) << endl;
+        }
+        if(occurence.compare(needle) == 0)
+            return occur.at(0);
+        else
+            return -1;
+    }
+};

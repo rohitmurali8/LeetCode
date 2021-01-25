@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        if (s == "")
+            return -1;
+        vector<int> unique;
+        int count = 0;
+        for(int i = 0; i < s.length(); i++){
+            for (int j = 0; j < s.length(); j++){
+                if (i != j && s.at(i) != s.at(j)){
+                    count += 1;
+                }
+            }
+            
+            if(count == s.length() - 1){
+                unique.push_back(i);
+            }
+            count = 0;
+        }
+        if (unique.size() == 0)
+            return -1;
+        cout << unique.at(0) << endl;
+        return unique.at(0);
+    }
+};

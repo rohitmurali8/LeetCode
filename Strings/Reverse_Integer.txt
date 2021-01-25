@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int reverse(int x) {
+        if (x == 0){
+            return 0;
+        }
+        vector<long> reverse_array;
+        long r;
+        int factor = 10;
+        while(x != 0){
+            long digit = x%10;
+            reverse_array.push_back(digit);
+            x = x/10;
+        }
+        
+        r = reverse_array.at(0);
+        for (int i = 1; i < reverse_array.size(); i++){    
+            r = r*factor + reverse_array.at(i);
+        }
+        cout << r << endl;
+        return (int)r;
+    }
+};

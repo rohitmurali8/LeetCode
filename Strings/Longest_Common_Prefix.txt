@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string lcp;
+        string max_lcp;
+        int count = 0;
+        if(strs.size() == 0)
+            return "";
+        if(strs.size() == 1)
+            return strs.at(0);
+        for(int i = 0; i < (strs.at(0)).size(); i++){
+
+            lcp.push_back((strs.at(0)).at(i));
+            for(int j = 1; j < strs.size(); j++){
+                if((strs.at(j)).find(lcp) != string::npos && (strs.at(j)).find(lcp) == 0 && lcp.length() > max_lcp.length()){
+                    count = count + 1;
+                }
+            }
+            if(count == strs.size() - 1)
+                max_lcp = lcp;
+            count = 0;
+        }
+        
+        return max_lcp;
+    }
+};

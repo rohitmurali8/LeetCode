@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int myAtoi(string s) {
+        int result;
+        string temp;
+        stringstream sub;
+        sub << s;
+        int count = 0;
+        if (s == " ")
+            result = 0;
+        while (!sub.eof()){ 
+            sub >> temp;
+            if (stringstream(temp) >> result && count == 0){ 
+                return result;
+                break;
+            }
+            
+            else if (stringstream(temp) >> result && count != 0){
+                result = 0;
+            }
+            temp = ""; 
+            count++;
+        }
+        return result;
+    }
+};

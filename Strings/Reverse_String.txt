@@ -1,0 +1,11 @@
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        char r;
+        for (int i = 0; i < s.size()/2; i++){
+            r = s.at(i);
+            s.at(i) = s.at(s.size() - 1 - i);
+            s.at(s.size() - 1 - i) = r;
+        }
+    }
+};
